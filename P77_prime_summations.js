@@ -6,13 +6,14 @@ function sieve_of_erat(N){
     */
     var lim = Math.floor(N/2);
     if (N%2 == 0){
-        lim -= 1;
+    	lim -= 1;
     }
     erat_sieve = []
     for (var i = 0; i<lim; ++i){
         erat_sieve[i] = true;
     }
-    prime_list = [2]
+    
+    prime_list = [2];
     for (var i = 0; i < Math.floor((Math.sqrt(N)-3)/2 +1); ++i){
         if (erat_sieve[i] == true){
             for(var j= i + (2*i+3); j<lim; j+=(2*i+3)){
@@ -29,7 +30,7 @@ function sieve_of_erat(N){
     return [erat_sieve, prime_list];
 }
 
-function main(){
+main = () =>{
     const N = 1000;
     const no_of_ways = 5000;
     const [esieve, plist] = sieve_of_erat(N-1);
